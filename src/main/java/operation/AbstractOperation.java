@@ -9,20 +9,18 @@ import main.java.stocks.StockName;
 public abstract class AbstractOperation {
 
     protected final String clientName;
-    protected final StockName stockName;
-    protected final int price;
-    protected final int quantity;
+    protected final Order order;
 
     AbstractOperation(String clientName, StockName stockName, int price, int quantity) {
         this.clientName = clientName;
-        this.stockName = stockName;
-        this.price = price;
-        this.quantity = quantity;
+        order = new Order(stockName, price, quantity);
     }
 
     public Order getOrder() {
-        return new Order(stockName, price, quantity);
+        return order;
     }
+
+
 
 
 }

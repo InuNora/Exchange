@@ -2,6 +2,7 @@ package test.java;
 
 import junit.framework.TestCase;
 import main.java.customers.Customer;
+import main.java.orders.Order;
 import main.java.stocks.StockName;
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ public class TestClients extends TestCase {
     @Test
     public void testBuy() {
         Customer client = new Customer("C1", 1000, 130, 240, 760,320);
-        client.buy(StockName.A, 100, 5);
+        client.buy(new Order(StockName.A, 100, 5));
         assertEquals(1000 - 100 * 5, client.getBalanceUSD());
         assertEquals(130 + 5, client.getStockQuality(StockName.A));
     }
@@ -32,7 +33,7 @@ public class TestClients extends TestCase {
     @Test
     public void testSell() {
         Customer client = new Customer("C1", 1000, 130, 240, 760,320);
-        client.sell(StockName.B, 50, 10);
+        client.sell(new Order(StockName.B, 50, 10));
         assertEquals(1000 + 50 * 10, client.getBalanceUSD());
         assertEquals(240 - 10, client.getStockQuality(StockName.B));
     }

@@ -1,5 +1,6 @@
 package main.java.customers;
 
+import main.java.orders.Order;
 import main.java.stocks.StockName;
 import main.java.stocks.Stock;
 
@@ -48,15 +49,15 @@ public class Customer implements ICustomer {
     }
 
     @Override
-    public void sell(StockName nameStock, int price, int quantity) {
-        stocksMap.get(nameStock).decrease(quantity);
-        this.balanceUSD += quantity * price;
+    public void sell(Order order) {
+        stocksMap.get(order.getStockName()).decrease(order.getQuantity());
+        this.balanceUSD += order.getQuantity() * order.getPrice();
     }
 
     @Override
-    public void buy(StockName nameStock, int price, int quantity) {
-        stocksMap.get(nameStock).increase(quantity);
-        this.balanceUSD -= quantity * price;
+    public void buy(Order order) {
+        stocksMap.get(order.getStockName()).increase(order.getQuantity());
+        this.balanceUSD -= order.getQuantity() * order.getPrice();
     }
 
     @Override

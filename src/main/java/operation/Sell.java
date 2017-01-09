@@ -15,7 +15,7 @@ public class Sell extends AbstractOperation implements IOperation {
 
     @Override
     public void apply(ICustomersList customers) {
-        customers.getCustomerByName(this.clientName).sell(stockName, price, quantity);
+        customers.getCustomerByName(this.clientName).sell(order);
     }
 
     @Override

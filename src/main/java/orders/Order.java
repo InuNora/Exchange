@@ -17,6 +17,18 @@ public class Order {
     }
 
 
+    public StockName getStockName() {
+        return stockName;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

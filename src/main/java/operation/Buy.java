@@ -15,7 +15,7 @@ public class Buy extends AbstractOperation implements IOperation {
 
     @Override
     public void apply(ICustomersList customers) {
-        customers.getCustomerByName(this.clientName).buy(stockName, price, quantity);
+        customers.getCustomerByName(this.clientName).buy(order);
     }
 
     @Override
